@@ -27,8 +27,8 @@ const Player = (name, marker) =>{
 }
 
 const GameController = (() => {
-    const player1 = Player("Player 1", "X");
-    const player2 = Player("Player 2", "O");
+    const player1 = Player("Player 2", "X");
+    const player2 = Player("Player 1", "O");
     let currentPlayer = player1;
 
     const switchPlayer = () => {
@@ -60,6 +60,7 @@ const GameController = (() => {
     };
 
     const playRound = (index) => {
+
         if (Gameboard.updateBoard(index, currentPlayer.marker)) {
             const winner = checkWinner();
             if (winner) {
@@ -83,28 +84,37 @@ const DisplayController = (() => {
     const cells = document.querySelectorAll(".cell");
     const message = document.querySelector("#message");
     const restartButton = document.querySelector("#restart");
+    const para = document.querySelector('.para')
 
     cells.forEach((cell, index) => {
         cell.addEventListener("click", () => {
             const result = GameController.playRound(index);
             updateDisplay();
             if (result) {
+                // message.textContent = ''
                 message.textContent = result === "Tie" ? "It's a tie!" : `${result.name} wins!`;
+                GameController.resetGame();
+                updateDisplay()
             }
+
         });
     });
 
     restartButton.addEventListener("click", () => {
         GameController.resetGame();
         updateDisplay();
-        message.textContent = "Player 1's turn";
+        para.textContent = "Player 2's turn";
     });
 
     const updateDisplay = () => {
+        const message = document.querySelector('#message')
+        const currentPlayer = GameController.getCurrentPlayer().name;
         const board = Gameboard.getBoard();
         cells.forEach((cell, index) => {
             cell.textContent = board[index];
+            para.textContent = `${currentPlayer}'s turn`
         });
+
     };
 
     return { updateDisplay };
