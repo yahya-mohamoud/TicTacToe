@@ -3,34 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
     <link rel="stylesheet" href="style.css">
-    <title>Tic-Tac-Toe</title>
-   
+    <script src="game.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>Tic Tac Toe</h1>
-    <div class="board">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <h1>TicTacToe</h1>
+        <div class="cells">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <h3 class="message"></h3>
+        <p class="para">Player one's Turn</p>
+        <button class="rstBtn">Restart</button>
     </div>
-    <div id="message">
-        <p class="para"></p>
-    </div>
-    <!-- <div class="score">
-        <p class="playerOneScore">Player1 score: 1</p>
-        <p class="playerTwoScore">Player2 score: 2</p>
-    </div> -->
-    <button id="restart">Restart</button>
-
-</div>
-    <script src="game.js"></script>
 </body>
 </html>

@@ -7,63 +7,90 @@
 
 }
 
-body{
-    background-color: #adb5bd;
-    font-family: 'rockSalt',Helvetica;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.container{
-    display: grid;
-    place-items: center;
-    margin-top: 0px;
+
+body {
+    min-height: 100dvh;
+    background-color: #1E1E3C;
+    color: white;
 }
-.board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    
-    background-color: #495057;
+
+.container {
 }
-.cell {
-    width: 100px;
-    height: 100px;
+.container h1{
+    text-align: center;
+}
+
+.cells{
+    background-color: #0000005b;
+    width: 356px;
+    height: 357px;
+    max-width: 500px;
+    margin: 40px auto;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
     justify-content: center;
-    font-size: 2.6em;
-    border: 1px solid black;
-    background-color: #e9ecef;
-}
-#message {
-    margin-top: 20px;
+    align-items: center;
 }
 
-button{
-    width: 80px;
-    height: 33px;
-    padding: 5px 8px;
-    background-color: #495057;
-    color: aliceblue;
+.cell {
+    min-width: calc(340px / 3);
+    min-height: calc(340px / 3);
+    max-width: 100%;
+    background-color: #B1B1B1;
+    font-size: 2rem;
+    font-family: 'rocksalt';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
     border: none;
+    padding: 4px 10px;
+    margin: auto;
+    display: block;
     font-size: 1.2rem;
-    border-radius: 10px;
+    border-radius: 0px 24px 0px 24px;
+    position: relative;
+    background-color: #1b3941;
+    color: white;
+    /* transition: backgrround-color 2s; */
 
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    background-color: #ffffffe1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 4px;
 }
 
 button:hover{
-    background-color: #ced4da;
-    color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.872);
+    color: black;
+    transition: background-color 0.71s ;
+
 }
 
-#message{
+button:hover::after {
+    background-color: #1b3941;
+    transform: scale(1.2);
+    /* transition: background-color 0.7s ; */
+} 
+
+.para, .message {
+    text-align: center;
     font-size: 1.3rem;
     margin-bottom: 10px;
-    font-family: helvetica;
-}
-
-.score {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: -10px;
 }
